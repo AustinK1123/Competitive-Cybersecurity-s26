@@ -8,3 +8,5 @@ Each entry should denote a member of your team and look exactly like the followi
 * Hunter Culp, @ncncope1, Team Member
 * Gary Maltby, @alpaca97745CEG2350, Team Member
 * Austin Kellough, @Austink1123, Team Captain
+* Brandon , @rabiddoughnuts, Team Member
+* Alexander Echevarria , @Alex-E0105, Team Member
