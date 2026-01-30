@@ -3,6 +3,8 @@
 Brandon Walker
 29-Jan-2026
 
+A CVE is a standardized "address" system for known vulnerabilities that is in the form `CVE-YYYY-NNNN` where YYYY is the year of the CVE identification, and then the NNNN is an assigned number for that specific vulnerability. CVE's are connected to specific CPE's, a CPE is a standardized address system for hardware and software, this allows you to look up the CPE for a service or device, and find what vulnerabilities affect it. This could be used by security professionals to find weaknesses to guard, or bad actors looking to exploit a system by seeing what service etc is available, and then how to exploit it for unauthorized access. These can be googled, but THE source for these should always be ![NIST](https://nvd.nist.gov/vuln) or ![CISA](https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A93).
+
 1. What is the CVE of the original POODLE attack?
     - Google the exact question, wikipedia, nist.gov and cisa.gov all agree `CVE-2014-3566`
 
@@ -21,13 +23,7 @@ Brandon Walker
 6. Samy is my…
     - `Hero`, according to wiki and news sources from when the virus came out
 
-The ability to find CVE's, especially for vulnerabilities that might affect a system you maintain is important because if you don't know what attacks you are vulnerable to, you don't know what to try and protect yourself from.
-
-A CPE is a `Common Platform Enumeration` aka, its an almost programatic string that describes your hardware or software.
-
 My operating system doesn't truly have a defined CPE being CachyOS, but if it had one, it would be `cpe:2.3:o:cachyos_project:cachyos:-:*:*:*:*:*:*:*` or `cpe:2.3:o:archlinux:arch_linux:*:*:*:*:*:*:*:*` as it is downstream of arch, and thus generally will have the same vulnerabilities
 
 The CPE of the software with the Smiley Face backdoor is `cpe:2.3:a:vsftpd_project:vsftpd:2.3.4:*:*:*:*:*:*:*`
-
-CPE is important because it is how you tell what CVE's might apply to your system.
 
