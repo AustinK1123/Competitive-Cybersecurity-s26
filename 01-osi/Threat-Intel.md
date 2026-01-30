@@ -20,3 +20,14 @@ Brandon Walker
 
 6. Samy is my…
     - `Hero`, according to wiki and news sources from when the virus came out
+
+The ability to find CVE's, especially for vulnerabilities that might affect a system you maintain is important because if you don't know what attacks you are vulnerable to, you don't know what to try and protect yourself from.
+
+A CPE is a `Common Platform Enumeration` aka, its an almost programatic string that describes your hardware or software.
+
+My operating system doesn't truly have a defined CPE being CachyOS, but if it had one, it would be `cpe:2.3:o:cachyos_project:cachyos:-:*:*:*:*:*:*:*` or `cpe:2.3:o:archlinux:arch_linux:*:*:*:*:*:*:*:*` as it is downstream of arch, and thus generally will have the same vulnerabilities
+
+The CPE of the software with the Smiley Face backdoor is `cpe:2.3:a:vsftpd_project:vsftpd:2.3.4:*:*:*:*:*:*:*`
+
+CPE is important because it is how you tell what CVE's might apply to your system.
+
