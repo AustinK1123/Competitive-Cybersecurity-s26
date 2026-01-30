@@ -17,5 +17,7 @@
 
 ---
 
-## Notes
-There is a lot of different data embedded inside an image
+## Tools
+* I used ![MetaData2Go](https://www.metadata2go.com/), however it requires signing in. 
+* ![Pics.io](https://pics.io/photo-metadata-viewer) had the same information but didn't require signing in. 
+* To switch GPS from Degree, Minutes, Seconds to decimal I used ![FCC](https://www.fcc.gov/media/radio/dms-decimal)
