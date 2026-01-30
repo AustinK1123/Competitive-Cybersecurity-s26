@@ -5,7 +5,7 @@ Conduct online research in order to answer specific technical questions involvin
 A quick online search of each question should provide several sources with the answer. Be careful to make sure that the answer that you obtain can be verified using an authoritative source. If you search for “DNS protocol specification”, you should find that the Internet Engineering Task Force (IETF) publishes the specification for DNS. You should use IETF resources as the authoritative source for answers. 
  
 Common DNS Record Types
-![alt text](image.png)
+![alt text](/01-osi/Screenshots/image.png)
 
 1. What type of DNS record holds the DNSSEC public signing key?
     DNSKEY holds the DNSSEC public singing key. Information - [RFC 4034](https://datatracker.ietf.org/doc/html/rfc4034)
