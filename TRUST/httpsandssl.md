@@ -32,3 +32,7 @@ root ca
 trust by browser
 certificate chains
 add csa and trust
+who would this affect, anyone attempting to set up a website or use it
+when would this affect, when someone is designing it or when someone is attempting to set it up
+where, on the internet
+why, to increase security amounts
