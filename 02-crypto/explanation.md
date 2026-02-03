@@ -1,3 +1,9 @@
-this will be an explanation of john and hash / pw cracking
-these words are for setup of the file
+Who might use it
 
+What is it
+
+When would it be used
+
+Where would it be used
+
+Why would it be used
