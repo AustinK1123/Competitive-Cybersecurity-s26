@@ -14,3 +14,9 @@ it would be used either in a student workspace, or by people practicing skills t
 
 Why would it be used 
 used to test hacking or to learn and test security systems that are set up
+
+basic instructions on how to use john the ripper
+
+First of all you need a password list, in this directory, 500_passwords.txt fills that role. 
+
+you also need a pre hashed password (usually in a file)
