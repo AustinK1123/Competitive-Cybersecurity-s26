@@ -11,7 +11,7 @@
 # Encryption
 * PNGs are not able to edited in the way asked due to compression. Here is what I tried and learned though
   * PNG the first 8 bytes are the magic ones that determine the file type. The IHDR is the image header chunk and contains height, width, color depth, and compression method. It is always 13 bytes big
-  * ![https://blog.kubesimplify.com/the-complete-guide-to-the-dd-command-in-linux](A link to a guide for the dd command)
+  * [!https://blog.kubesimplify.com/the-complete-guide-to-the-dd-command-in-linux](A link to a guide for the dd command)
   * The command I was trying is dd if=tux-96.png of=tux-96.ecb bs=1 count=8 conv=notrunc
   * When editing the png file with a dd command if="file" is the input of="file" is the output bs=1 is number of bytes read/written in the operation, count="number" is how many bytes, conv=notrunc is saying to not overwrite the whole file. 
   * When looking at files in vim and using :%!xxd to convert the data, the metadata stops at the byte that contains IDAT. 
