@@ -26,6 +26,6 @@ password in it in order to
 
 important commands 
 sha256sum, use this on the file that has your password to hash it, allowing john to break the hash
-can also do sha512sum 
+can also do sha512sum difference between sha 256 and sha 512 is amount of hashes  
 john, used to hack the hash itself
 
