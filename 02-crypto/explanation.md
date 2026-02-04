@@ -20,3 +20,12 @@ basic instructions on how to use john the ripper
 First of all you need a password list, in this directory, 500_passwords.txt fills that role. 
 
 you also need a pre hashed password (usually in a file)
+
+500 passwords.txt would not be a good one for not the example im currently doing, because its only 500 options and the wordlist needs to actually have the 
+password in it in order to 
+
+important commands 
+sha256sum, use this on the file that has your password to hash it, allowing john to break the hash
+can also do sha512sum 
+john, used to hack the hash itself
+
