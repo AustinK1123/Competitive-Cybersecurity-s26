@@ -29,4 +29,9 @@ sha256sum, use this on the file that has your password to hash it, allowing john
 can also do sha512sum difference between sha 256 and sha 512 is amount of hashes  
 john, used to hack the hash itself
 
-johns syntax is as follows --
+johns syntax is as follows -
+john (options) (hashfile) this is the basic context
+
+john --wordlist=(wordlistname) (hashfile)
+remove parenthesis and replace with the name of the files, for this one its 500_passwords.txt
+and the hashfile isnt present but would be filename.hashes
