@@ -38,4 +38,12 @@ and the hashfile isnt present but would be filename.hashes
 
 how to see cracked passwords with john
 
-john --show (hashfile) 
+john --show (hashfile)
+
+to get a wordlist, either get one from online, which rockyou.txt is a very good one
+
+you can also make one by just coming up with common passwords, but this is very slow
+
+john has many permutations, some of which are l means lowercase u is uppercase c is capitalize, etc
+
+these permutations are rules for how to use the command, you can also do rules=all when running john 
