@@ -35,3 +35,7 @@ john (options) (hashfile) this is the basic context
 john --wordlist=(wordlistname) (hashfile)
 remove parenthesis and replace with the name of the files, for this one its 500_passwords.txt
 and the hashfile isnt present but would be filename.hashes
+
+how to see cracked passwords with john
+
+john --show (hashfile) 
