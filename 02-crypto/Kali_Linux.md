@@ -10,12 +10,9 @@ A VM can be made in many ways a favorite of mine is to use oracle virtual box to
 
 ### Install prosses
 1. we will start with opening vertual box and clicking add.
-
-2. next we will select that kali linux distro for vertual box from " " and unzip the file.
-
+![image](/02-crypto/Image/menu1.png) 
+2. next we will get a kali linux distro for vertual box from "https://www.kali.org/get-kali/#kali-virtual-machines" and unzip the file. later wot will select it for the .ISO image.
+![image](/02-crypto/Image/NewMenu.png) 
 3. after that you will have a VM made we need to start it to finnish the basic linux setup. (defalt cridental are kali, kali)
-
-![image](/02-crypto/Image/install.png) 
-
-### Creating a bootable USB
+![image](/02-crypto/Image/DiskMenu.png) 
 
