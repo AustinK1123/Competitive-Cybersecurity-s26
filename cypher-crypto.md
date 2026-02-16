@@ -62,6 +62,70 @@ Sources
 VIDEO: [Cyber Skyline Live: Cracking Crypto with Cyberchef - March 23, 2023](https://youtu.be/wDPDh083cEM)  
 ARTICLE: [CyberChef: Securing Cyber Space](https://www.infosectrain.com/blog/cyberchef-securing-cyber-space)
 
-# quidquid
+# quipquip
+
+ Quipqiup is a fast and automated cryptogram solver. It can solve simple substitution ciphers, cryptoquips, patristocrats and more. The great thing about Quipquip is that you don't need to do anything grand, all you have to do is paste the encrypted text, hit Solve and wait for a few seconds. Quipquip will then try to find what encryption method was used and try to decrypt the text.  
+
+![quipquip]("C:\Users\Veteran\Documents\GitHub\Competitive-Cybersecurity-s26\Cyber-Chef-Cipher.png")  
+
+[QuipQuip: beta3](https://quipqiup.com/)
+
+# Command Line Tools for Images
+
+* `exiftool`
+    - Parses the files headers to display data about how the file was created and handled
 
 
+
+* `strings` command to check for anamolies in the header and footers of file
+    - `strings -n 10 <example-image.jpg>`
+    - `strings -t 10 <example-image.jpg>`
+
+* hex dump  
+SOFO (Start of Frame) Marker check  
+    - xxd Steg1.jpg | grep "ffc0" -A 1
+
+## Anamolies to look for
+1. Mismatched Dimensions
+2. Suspicious "Comment" or "Warning" Fields
+3. Unusual Software or Profiles
+4. Appended Data (Trailing Bytes)
+5. Time Discrepancies
+
+# Command-Line References
+
+| Tool & Command | Practical Example | Why Use It (Intent) |
+| :--- | :--- | :--- |
+| **`strings`** | `strings Steg1.jpg | tail -n 20` | To find plain-text flags (like `SKY-TVJI-2063`) that are often appended after the binary image data. |
+| **`grep`** | `strings Steg1.jpg | grep -i "CTF"` | To filter through thousands of lines of code to isolate specific flag patterns or keywords. |
+| **`binwalk`** | `binwalk -e Steg1.jpg` | To detect and automatically extract hidden files (like a ZIP or second JPEG) embedded inside the carrier file. |
+| **`exiftool`** | `exiftool -Comment Steg1.jpg` | To read hidden text inside metadata fields that are invisible to standard image viewers. |
+| **`xxd`** | `xxd Steg1.jpg | head -n 20` | To inspect "Magic Bytes" (like `ffd8`) and headers to verify file integrity and look for manual tampering. |
+| **`head` / `tail`** | `tail -c 100 Steg1.jpg` | To isolate the very end of a file where hackers commonly "paste" extra data after the End of Image marker. |
+| **`md5sum`** | `md5sum Steg1.jpg` | To generate a unique "fingerprint." Sometimes the MD5 hash of the file itself is the required flag. |
+| **`base64`** | `echo "ZmxhZw==" | base64 -d` | To translate "obscured" text (strings ending in `=`) back into readable English or binary. |
+
+---
+
+## Forensic "One-Liners" (Cheat Sheet)
+
+Use these combinations for faster analysis during time-sensitive challenges:
+
+### 1. The Keyword Sweep
+Find any flag-related string regardless of case sensitivity:
+`strings Steg1.jpg | grep -iE "flag|ctf|key|secret|pass"`
+
+### 2. Recursive Extraction
+Scan for hidden files and attempt to extract them into a folder:
+`binwalk -re Steg1.jpg`
+
+### 3. The "Tail" Hunt
+Look for plain-text data appearing specifically after the JPEG "End of Image" marker (`FF D9`):
+`xxd Steg1.jpg | grep -A 5 "ffd9"`
+
+### 4. Base64 Discovery
+Identify long continuous strings (20+ characters) that match the Base64 alphabet:
+`strings Steg1.jpg | grep -E "[a-zA-Z0-9+/]{20,}"`
+
+---
+*Reference generated for Cybersecurity Lab: Strings (Easy)*
