@@ -24,9 +24,12 @@ envars is just environment variables, for anyone that has taken any coding it is
 
 You can grep the username in this case, in a broader context you could grep with negative matching to block out .dll's and any types of files that are going to be the system, or whatever you arent interested as you go to look around at less things, again `> somefile` is great for not rerunning across greps.
 
-
+This part is DEPRECATED but I am keeping it in for posterity.
+```
 `vol2 -f memdump.mem --profile=Win10x64 dumpfiles -Q 'address of file above 0x0 format' -D 'directory you want to output it to'` will NORMALLY dump the file into your output directory, but is not currently working for me
 
 at this point I *SHOULD* have documented better, but honestly if I had this would be monstrous. Chatgpt helped me figure out how to get part of the db that is apparently supposed to be what we get as output, and then use a strings filter to get out raw names, and then I guess the name, this took me hours, fuck this challenge.
 
 `vol2 -f memdump.mem --profile=Win10x64 hashdump` will output a dump of the users hashes, and any NTLM cracker will be able to break it, I just used 'crackstation.net'
+```
+`vol3 -f memdump.mem -o outputlocation windows.dumpfiles --virtadd 0xe0003f5a9d00` This command will output a .dat file and another file I dont remember but its unneeded. The .dat file has to be renamed to end in just .db, and then you can open it with any db browser, from sqlite on the command line, or even easier is just use a web one and you can see the tables.
