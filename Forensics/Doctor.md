@@ -13,3 +13,9 @@
   * `feh image0.png`
 
 ![Image of iamge0.png feh](/Forensics/Image/image0-Screenshot.jpg)
+
+# Feh
+* Feh most any picture file format
+  * Webp, jpeg, jpeg XL, png, bmp, etc etc.
+  * It can open gifs but makes them static, same with any moving image.
+* Feh will fail used on non image files like txt and unsupported formats. 
