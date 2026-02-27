@@ -9,6 +9,7 @@
 ![Picture shwoing the IHDR Block](/Forensics/Image/Hex-magic-bytes.jpg)
 * Now that we know it is a png take this block of magic bytes `89 50 4e 47 0d 0a 1a 0a 00 00 00 0d` and replace the first bytes with these.
 * Use `:%!xxd -r` to change it back. Then escape into the command and `:wq`
+* Make sure to rename the file into a png `mv flag.jpeg flag.png`
 * Once you do you can open the png and see the flag. Could do this using feh
 ### Hexedit
 * To use hexedit open the file flag.jpeg in hexedit
@@ -17,4 +18,5 @@
 * Using hexedit you can change the first bytes to this `89 50 4e 47 0d 0a 1a 0a 00 00 00 0d` Do not copy and paste.
 * You can save with control + x
     * You can also quit without saving using control + c
+* Make sure to rename the file into a png `mv flag.jpeg flag.png`
 * You can now open the file. Could do this using feh
