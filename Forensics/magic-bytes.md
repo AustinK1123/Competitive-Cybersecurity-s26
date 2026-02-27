@@ -1,7 +1,7 @@
 # Magic Bytes Documentation
 * Within files there are magic bytes that say what type of file it is. These are differnt for each file
 * [List of magic bytes for files provided by wikipedia](https://en.wikipedia.org/wiki/List_of_file_signatures)
-* To view hex you can use vim or a tool
+* To view hex you can use vim or a tool: hexedit
 ### VIM
 * To use vim open the file flag.jpeg in vim and then escape into the command line.
 * Then use `:%!xxd` to convert the hex.
