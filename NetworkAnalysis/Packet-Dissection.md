@@ -1,0 +1,28 @@
+# Packet Dissection
+- The reference and the graph are correlated.
+- The graph is spilt into four columns that are bytes. These columns are spilt from the reference with 8 bits.
+    - So byte 0 is bit 0,1,2,3,4,5,6,7.
+- The rows directly correlate to the graph.
+- The reference tells us that the header checksum is two bytes long and in row 3(8/64). The column would be 2 and 3.
+    - The binary correlating is `01001111 10010011`  
+- You can put these into CyberChef with the recipe From Binary and byte legnth of 8 with space delimiter.
+- Then add the recipe To Hex with demliter space and bytes per line of 0.
+    - This comes out to `f493`
+- The TLT package is Time to Live. This is 1 byte long, with the byte being 0 and in row 3(8/64)
+    - The binary correlating is `01000000`
+- Put this into CyberChef with the same recipe From Binary and a To Decimal with space delimiter. 
+    - This comes out to `64`
+- The source IP address is all 4 bytes long and is in row 4(8 and 64)
+    - The binary correlating is `11000000 10101000 10000000 10000000`
+- Put this into CyberChef with the following recipes in the same order:
+    - From Binary, space delimiter and 8 byte length
+    - To Hex, space delimiter and 0 bytes per line
+    - Change IP Format:
+      - Input Format of Hex
+      - Output Format of Dotted Decimal
+    - This comes out to `192.168.128.128` 
+- The destination IP is all 4 bytes long and is in row 5(16 and 128)
+  - The binary correlating is `10011111 11001011 01100000 10011010`
+- The CyberChef recipe is the same for source IP address and destination IP address.
+  - This comes out to `159.203.96.154`
+- [Link to CyberChef](https://gchq.github.io/CyberChef/)
