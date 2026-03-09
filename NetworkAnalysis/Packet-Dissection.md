@@ -25,4 +25,4 @@
   - The binary correlating is `10011111 11001011 01100000 10011010`
 - The CyberChef recipe is the same for source IP address and destination IP address.
   - This comes out to `159.203.96.154`
-[Link to CyberChef](https://gchq.github.io/CyberChef/)
+- [Link to CyberChef](https://gchq.github.io/CyberChef/)
