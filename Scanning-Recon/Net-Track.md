@@ -2,7 +2,7 @@
 - Use `nc` to get into the server.
 - The full command is hostname and then port 
     - `nc net-track.services.cityinthe.cloud 8090`
-- Now that you are in the server, it looks like it didn't work. However type anything in except for a blank line to get a help message
+- Now that you are in the server, it looks like it didn't work. However enter anything in and you will get a help message. 
 - This help message tells us to use the command help to get a list of commands.
 - `help` list this:
 ```
