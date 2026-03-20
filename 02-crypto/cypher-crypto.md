@@ -66,7 +66,7 @@ ARTICLE: [CyberChef: Securing Cyber Space](https://www.infosectrain.com/blog/cyb
 
  Quipqiup is a fast and automated cryptogram solver. It can solve simple substitution ciphers, cryptoquips, patristocrats and more. The great thing about Quipquip is that you don't need to do anything grand, all you have to do is paste the encrypted text, hit Solve and wait for a few seconds. Quipquip will then try to find what encryption method was used and try to decrypt the text.  
 
-![quipquip]("C:\Users\Veteran\Documents\GitHub\Competitive-Cybersecurity-s26\Cyber-Chef-Cipher.png")  
+![quipquip](/02-crypto/Image/Cyber-Chef-Cipher.png)  
 
 [QuipQuip: beta3](https://quipqiup.com/)
 

@@ -16,13 +16,13 @@
 A quick search of the .cloud top-level domain shows that the .cloud TLD is delegated by ICANN and managed by Aruba S.p.A., making these two organizations authoritative sources regarding the .cloud TLD.
 
 Input domain name in the ICANN's Lookup
-![alt text](/01-osi/Screenshots/ICANN.png)
+![alt text](/01-osi/image/ICANN.png)
 
 This gives you the Domain information 
-![alt text](/01-osi/Screenshots/DomainInformation.png)
+![alt text](/01-osi/image/DomainInformation.png)
 
 And the Registrar Information
-![alt text](/01-osi/Screenshots/RegistrarInformation.png)
+![alt text](/01-osi/image/RegistrarInformation.png)
 
 1. Who is the registrar of this domain?
     Dynadot, LLC (Name Under Registrar Information)
