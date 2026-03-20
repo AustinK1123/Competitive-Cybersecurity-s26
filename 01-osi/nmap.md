@@ -1,6 +1,6 @@
 Gary Maltby
 
-## NMAP
+## NMAP Will update
 
 1. What is the lowest open TCP port on the system?
 `nmap -Pn -A -p- ports.cityinthe.cloud`
