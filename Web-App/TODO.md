@@ -8,7 +8,7 @@ This tells us it’s a button that uses a summit for labeled function add item.
 
 To find the `Add item` function we will have to look for a main.js file.
 
-![image](/web-application-exploitation/image/TODO-function.png)
+![image](/Web-App/image/TODO-function.png)
 
 in the function we find the fetch command to retrieve the information sent to the server.
 Then we can modify it to fit our needs.
@@ -32,5 +32,5 @@ Instead of sending back the value you sent we will tell it to send cookies back 
 To find the user agent we will use the same script, but we are going to be looking for `navigator.userAgent` put it in the #replace# spot.
 
 Once you have entered the script you may need to refresh to see the data populate.
-![image](/web-application-exploitation/image/TODO-Fullv2.png)
+![image](/Web-App/image/TODO-Fullv2.png)
 
