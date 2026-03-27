@@ -1,11 +1,3 @@
-## History
-
-
-
-
-## Custom File Formats
-
-
 
 
 ### How many unique usernames appear in this log?  
@@ -47,33 +39,3 @@ What is the date with the most login attempts?
 `sort | uniq -c`: Counts how many times each username appears (which now equals their total number of unique IP addresses).
 
 `sort -nr | head -n 5`: Sorts the final count in descending numerical order and displays the top 5 targets.
-
-## VSFTPD
-
-Analyze a VSFTPD log file that we obtained.  
-
-What IP address did "ftpuser" first log in from?  
-
-What is the first directory that ftpuser created?  
-
-What is the last directory that ftpuser created?  
-
-What file extension was the most used by ftpuser?  
-
-What is the username of the other user in this log?  
-awk '{print $6 $7 $8}' vsftpd.log  
-jimmy  
-
-What IP address did this other user log in from?  
-`cat vsftpd.log | grep "jimmy"`
-
-How many total bytes did this other user upload?  
-`cat vsftpd.log | grep "jimmy" | grep "UPLOAD" | awk '{print $15}'`
-
-How many total bytes did ftpuser upload?  
-
-How many total bytes did ftpuser download?  
-
-Identify the IP address of the suspicious login (the login with no subsequent activity)  
-
- 
