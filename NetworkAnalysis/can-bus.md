@@ -20,7 +20,8 @@ The goal is to extract vehicle speed information from a CAN network capture. We 
 To solve this efficiently, the following tools are recommended:
 * **Linux (Kali/Parrot):** For `can-utils`.
 * **Python:** For automated parsing.
-* **Wireshark:** To inspect the `.pcap` structure.
+* **Wireshark:** To inspect the `.pcap` structure.  
+  - Wireshark is a graphical interface for tshark. Tshark is a tool for inspecting network traffic using either your current traffic by reading right from your network cards, or from PCAP files which are just large detailed logs of all the things tshark would capture from network traffic it inspects. I am going to primarily use tshark as it outputs to command line where I can grep, cut, sort, etc, and that makes it FAR easier to analyze than using the interface and trying to figure out how to copy those functionalities from the GUI.
 * **SavvyCAN:** (Optional) For visual signal analysis.
 
 ---
