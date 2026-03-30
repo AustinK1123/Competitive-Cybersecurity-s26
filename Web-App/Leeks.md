@@ -1,98 +1,122 @@
-# Leek Challenge - Clear and Concise Guide
+# Leek Challenge - Reworked Write-Up (Template Draft)
 
-## Goal
+**Challenge Type:** Web application vulnerability
+**Difficulty:** Easy-Medium
+**Write-Up Mode:** Balanced depth with full transcript evidence
 
-Exploit the add-item endpoint to trigger a server-side memory leak and recover the flag.
+---
 
-## Vulnerability in One Line
+## 1. High-Level Synopsis
 
-The backend likely handles string and numeric JSON input differently; numeric input may be treated as Buffer length instead of text, causing leaked memory bytes.
+This challenge tests whether you can identify and exploit unsafe server-side memory handling in a web app endpoint. The app accepts JSON for adding grocery items, but different input types appear to trigger different backend behavior.
 
-## Tools
+**Goal:** Trigger the memory leak path and recover the leaked flag from server responses.
 
-### Browser DevTools
+---
 
-Use Network, Payload, Preview/Response, and Headers tabs to:
+## 2. Tools and Concepts Overview
 
-- identify endpoint and request format,
-- confirm backend clues (Express/Node),
-- inspect how response data is returned.
+### Tools Used
 
-### Copy as cURL
+- **Browser Developer Tools (Chrome/Chromium):** capture live requests, inspect payloads, and inspect response data shape.
+- **cURL:** replay and mutate requests quickly from terminal.
+- **(Optional) Burp Suite / ZAP:** alternative request repeater/fuzzer workflow.
 
-Export an exact working request from DevTools, then mutate only the JSON body.
+### Key Functionality Used in This Solve
 
-### curl
+- **DevTools -> Network tab:** to identify endpoint and request body schema.
+- **DevTools -> Payload tab:** to confirm exact JSON key and type.
+- **DevTools -> Preview/Response tab:** to observe Buffer-like response behavior.
+- **DevTools -> Copy as cURL:** to export a valid baseline request.
+- **cURL `--data-raw`:** to mutate JSON body while preserving endpoint/headers.
+- **`Content-Type: application/json`:** ensures backend parses JSON and preserves primitive type.
 
-Replay requests quickly while testing input type changes and size increases.
+### Commonly Useful Functionality for Similar Challenges
 
-Optional: Burp Suite or ZAP can do the same with a GUI workflow.
+- **DevTools -> Headers tab:** verify backend/runtime hints and content handling.
+- **Type mutation testing:** try `"text"`, `10`, `null`, `[]`, `{}` to detect type confusion.
+- **Incremental payload scaling:** test `10`, `32`, `64`, `100`, `128` to expand leak windows.
+- **Output capture and diffing:** compare responses across payloads to isolate meaningful bytes.
 
-## Solve Workflow
+### Web Tools and References Used
 
-### Step 1: Capture baseline request
+- [Node.js Buffer documentation](https://nodejs.org/api/buffer.html)
+- [Node.js deprecations and unsafe constructor history](https://nodejs.org/api/buffer.html#new-bufferarray)
+- [cURL docs](https://curl.se/docs/manpage.html)
 
-Add a normal grocery item and inspect the request payload.
+---
 
-Expected shape:
+## 3. Detailed Walkthrough (Full Step Transcript)
+
+### Step 1: Capture baseline request behavior
+
+**Step Goal:** Identify the request schema and target endpoint used by the app when adding an item.
+
+**Action:**
+
+1. Open challenge page.
+2. Open DevTools (`F12`).
+3. Go to **Network** tab.
+4. Add a normal item (example: `Banana`).
+5. Inspect the `add` request payload.
+6. Right-click that `add` request in Network, then select **Copy -> Copy as cURL**.
+7. Paste the copied command into your terminal so you have a runnable baseline request.
+
+**Observed payload shape:**
+
+```json
 {
   "content": "Banana"
 }
+```
 
-### Step 2: Confirm response clue
+**Logic:** You need a known-good request before mutation. This confirms endpoint, JSON key name, and valid baseline formatting.
 
-The response appears Buffer-like, not a clean sanitized string. Combined with Express headers, this strongly suggests Node Buffer handling in the backend.
+### Step 2: Inspect response data characteristics
 
-### Step 3: Form hypothesis (key reasoning)
+**Step Goal:** Determine whether the server response hints at direct buffer handling.
 
-Why test 10 instead of "10"?
+**Action:**
 
-- JSON preserves type: "10" is string, 10 is number.
-- Node Buffer behavior is type-sensitive: string input is encoded as text; numeric input can represent buffer size.
-- If backend uses unsafe/deprecated buffer construction, numeric input can trigger allocation behavior instead of text handling.
-- If that allocated memory is exposed without proper initialization/sanitization, stale server memory can leak.
+1. In the same captured `add` request, open **Preview**/**Response**.
+2. Compare expected text behavior vs returned structure.
 
-So the test is not changing characters; it is changing type.
+**Observation:** Response appears Buffer-like rather than a cleanly normalized string payload.
 
-### Step 4: Replay with numeric payload
+**Logic:** A Buffer-like response is a strong clue that backend memory/buffer logic may be exposed to user-controlled input.
 
-Start from copied request and change body:
+### Step 3: Build and justify exploit hypothesis
 
-curl 'https://<host>/add' \
-  -H 'Accept: */*' \
-  -H 'Content-Type: application/json' \
-  --data-raw '{"content":10}'
+**Step Goal:** Define a testable hypothesis for how input type affects backend execution path.
 
-Then refresh the app output and inspect results.
+**Action (hypothesis-driven):**
 
-Expected result:
+- Compare `"10"` (string) vs `10` (number) in JSON.
 
-- Partial leaked bytes, often including part of the flag.
+**Logic:**
 
-### Step 5: Increase leak size
+- JSON preserves primitive type.
+- In Node-style buffer workflows, string input can be treated as text bytes while numeric input can be interpreted as size.
+- If unsafe/deprecated buffer construction exists, numeric input may allocate and expose stale/uninitialized memory content.
 
-If output is partial, increase numeric value (for example 32, 64, 100, 128):
+### Step 4: Trigger leak path and scale payload until full flag appears
 
-curl 'https://<host>/add' \
-  -H 'Accept: */*' \
-  -H 'Content-Type: application/json' \
-  --data-raw '{"content":100}'
+**Step Goal:** Use numeric JSON input to trigger the leak path, then increase values until the full flag is visible.
 
-Larger size can leak more bytes and reveal full flag content.
+**Action:**
 
-### Step 6: Extract flag
+1. Use the copied cURL command from Step 1 in terminal and change only the JSON payload to a small numeric value:
 
-Repeat and compare outputs if noisy, then isolate the complete flag string.
+    ```bash
+    curl 'https://<host>/add' \
+    -H 'Accept: */*' \
+    -H 'Content-Type: application/json' \
+    --data-raw '{"content":10}'
+    ```
 
-## Why This Pattern Matters
+2. Run that command in terminal.
+3. Refresh the app output (or inspect response flow) and check for partial leaked bytes.
+4. If output is partial, rerun from terminal with larger numeric values until you get the full flag.
+5. Record the exact final flag string from the leaked output.
 
-- It teaches practical type-confusion testing in black-box web apps.
-- It shows how high-level runtimes can still leak memory when unsafe APIs are misused.
-
-## Quick Checklist
-
-- Capture normal add request.
-- Confirm content field and Buffer-like response.
-- Switch payload from "10" to 10.
-- Increase numeric size until leak is complete.
-- Extract and submit flag.
+**Logic:** The request stays syntactically valid while changing only type/size behavior. Larger numeric values can expose more bytes, turning partial leakage into full flag recovery.
