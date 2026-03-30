@@ -5,18 +5,18 @@ SSH is a service that allows a device to provide remote terminal access. If you�
 # Questions
 1. What is the hostname of the SSH server that was compromised?
 This can be solved by finding the hostname, which is listed directly after the timestamp for each entry in the log.
----
+```
 Oct 11 10:12:00 myraptor sshd[29459]: Server listening on 0.0.0.0 port 22.
----
+```
 myraptor
 
 2. What was the first IP address to attack the server?
 This can be solved by identifying the IP address of the attacker in the first “Failed password” entries. 
 
 `grep Failed auth.log`
----
+```
 Oct 11 10:12:25 myraptor sshd[29465]: Failed password for harvey from 169.139.243.218 port 57273 ssh2
----
+```
 169.139.243.218
 
 3. What was the second IP address to attack the server?
@@ -40,6 +40,6 @@ harvey
 This can be solved by searching for the entry that has “Accepted password”.
 
 `grep Accepted auth.log`
----
+```
 Oct 11 10:36:59 myraptor sshd[30003]: Accepted password for harvey from 30.167.206.91 port 55326 ssh2
----
+```
