@@ -12,7 +12,8 @@ Q1) What is the path of the php file with the most warnings?
 Q2) What is the Internet Service Provider that this website is being hosted on?
 ` cat Webapp.log | head` will give you some top level warnings, they start with a date stamp, then its a url, the googlebots are not the hosts, but the next ones are "xxxxxxx.rogers.com" if you cut all the beginning fluff, and check out rogers.com, its a real website, and they sell internet service, thats the ISP
 
-Q3) who the fuck knows
+Q3) What software platform is this website using?
+This one is just looking through the log and knowing that `wp-login` is for wordpress, and thats the answer `Wordpress`.
 
 Q4) How many unique php files are triggering warnings or notices?
 `cat Webapp.log | grep php | cut -d'~' -f2 | cut -d' ' -f1 | sort -u | wc -l` will give you this answer, this is searching for php files, cutting the lines right at the path, because there are not a set number of columns before the path for all of them, and then cutting everything off after the path, and then sorting, removing duplicates, and then counting the lines
