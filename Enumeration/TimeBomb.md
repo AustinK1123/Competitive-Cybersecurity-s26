@@ -17,15 +17,15 @@ there are multiple ways to find out. I used JDK on WSL to find the type of file 
 
 ## Exit code / viewing the code
 
-Now that we know they type of code used to make the file we can decode it into viewable text.
-to make it easy i used a online tool to decode and view. `https://www.decompiler.com/`
+Now that we know they type of code used to make the file we :wqcan decode it into viewable text.
+to make it easy I used an online tool to decode and view. `https://www.decompiler.com/`
 
 ![image](/Enumeration/Image/TimeGym2.png)
 
 ## finding the UTC time
 
-the time the program is looking for is in the code, but it is not is a easy to read format.
-`1.65806352E12D` is given as the time the program is looing for not is not a whole number so to convert it from milliseconds to a readable time `1658063520000`.
+the time the program is looking for is in the code, but it is not in a easy to read format.
+`1.65806352E12D` is given as the time the program is looking for but it is not a whole number so to convert it from milliseconds to a readable time `1658063520000`.
 
 ![image](/Enumeration/Image/TimeGym4.png)
 
