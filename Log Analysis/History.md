@@ -1,6 +1,54 @@
 ## History
+The tool used for this challenge is **`sqlite3`**
 
+**Helpful commands**   
+`.help` - See all avaliable dot commands  
+`.databases` - Show current database connections  
+`.tables` - View tables in the database  
+`.schema` - View the schema (structure) of the tables  
+`.quit` - Exit the SQlite prompt  
+`.mode column` - Displays the data with columns  
+`.headers on` - Adds headers to column  
 
+**Run these commands to get started with the data.**
+
+`sqlite3 browser.sqlite`  
+`.tables`  
+ `SELECT * FROM moz_hosts;`  
+ `.headers on`
+ `.mode column`
+
+```
+292|https://blockchain.info/tx/5274cfba585a4b5681527a37f95c76340428916bb7480cef6c545f0a28dcd2d7|Bitcoin Transaction 5274cfba585a4b5681527a37f95c76340428916bb7480cef6c545f0a28dcd2d7|ofni.niahckcolb.|1|0|0|16|-1|1443893741687300|j7U3OZdoQwLM|0
+```
+- Question 1
+What did the user search for on craigslist?
+The user’s search can be seen in row 23 inside the “query’ parameter in the URL
+
+- Question 2
+What was the current price of bitcoin when the user was browsing?  
+The current price is listed in row 23 in of the “title” of Bitstamp’s homepage.  
+
+- Question 3  
+What Bitcoin exchange did the user log in to?  
+The Bitcoin exchange is identified in row 253, which shows the user successfully loading their account page after logging in. 
+
+- Question 4  
+What is the email that was used to log into the exchange?    
+The email can be found on row 47 in the “title” of the Gmail webpage. 
+
+- Question 5  
+What was the ID of the Bitcoin transaction that the user looked at?
+Answer: 5274cfba585a4b5681527a37f95c76340428916bb7480cef6c545f0a28dcd2d7
+
+- Question 6  
+What was the total BTC of all the inputs of the Bitcoin transaction?
+Answer: 0.22616302  
+If you visit the link when the transctions took place, https://blockchain.info/tx/5274cfba585a4b5681527a37f95c76340428916bb7480cef6c545f0a28dcd2d7, you can see the transaction amounts (2 inputs, .01872 BTC and .03896302 BTC)  
+
+- Question 7  
+Which bitcoin address received the majority of the Bitcoin in the transaction?
+Looking at the same URL from question 6, look at the right side of the site to see the transactions. In the "To" column, the most BTC (.1872) was sent to `18z6bTFjxkXCmhfp8YBetR2wgmoVjXGJZz`.
 
 
 ## Custom File Formats
